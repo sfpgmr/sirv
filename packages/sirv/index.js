@@ -167,10 +167,10 @@ export default function (dir, opts={}) {
 		if (brots && /(br|brotli)/i.test(val)) extns.unshift(...brots);
 		extns.push(...extensions); // [...br, ...gz, orig, ...exts]
 
-		if (pathname.indexOf('%') !== -1) {
-			try { pathname = decodeURIComponent(pathname) }
-			catch (err) { /* malform uri */ }
-		}
+//		if (pathname.indexOf('%') !== -1) {
+//			try { pathname = decodeURIComponent(pathname) }
+//			catch (err) { /* malform uri */ }
+//		}
 
 		let data = lookup(pathname, extns) || isSPA && !isMatch(pathname, ignores) && lookup(fallback, extns);
 		if (!data) return next ? next() : isNotFound(req, res);
